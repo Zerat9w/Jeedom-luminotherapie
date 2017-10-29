@@ -25,7 +25,7 @@ $('#tab_zones a').click(function(e) {
 });
 
 $("body").on('click', ".listCmdAction", function() {
-	var el = $(this).closest('eqLogic').find('.eqLogicAttr[data-l2key=DawnSimulatorCmd]');
+	var el = $(this).closest('.form-group').find('.eqLogicAttr[data-l2key=DawnSimulatorCmd]');
 	jeedom.cmd.getSelectModal({cmd: {type: 'action'}}, function (result) {
 		el.value(result.human);
 	});
