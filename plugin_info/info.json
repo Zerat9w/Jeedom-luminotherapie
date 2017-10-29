@@ -1,0 +1,9 @@
+{
+	"id" : "luminotherapie",
+	"name" : "luminothérapie",
+	"licence" : "AGPL",
+	"author" : "Halbout Michael",
+	"require" : "3.0",
+	"category" : "organization",
+	"hasOwnDeamon" : true
+}
