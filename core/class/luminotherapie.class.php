@@ -54,7 +54,7 @@ class luminotherapie extends eqLogic {
 		$cron->setDeamon(1);
 		$cron->setOption(array('id' => $this->getId()));
 		$cron->setEnable(1);
-		$cron->setSchedule($Schedule);
+		$cron->setSchedule('* * * * * *');
 		$cron->save();
 		return $cron;
 	}
@@ -76,11 +76,11 @@ class luminotherapie extends eqLogic {
 			if(is_object($cmd)){
 				while(true){
 					$options['slider'] = ceil($luminotherapie->dawnSimulatorEngine(
-						$cmd['configuration']['DawnSimulatorEngineType'],
+						$luminotherapie->getConfiguration('DawnSimulatorEngineType'),
 						$time,
-						$cmd['configuration']['DawnSimulatorEngineStartValue'], 
-						$cmd['configuration']['DawnSimulatorEngineEndValue'], 
-						$cmd['configuration']['DawnSimulatorEngineDuration']
+						$luminotherapie->getConfiguration('DawnSimulatorEngineStartValue'), 
+						$luminotherapie->getConfiguration('DawnSimulatorEngineEndValue'), 
+						$luminotherapie->getConfiguration('DawnSimulatorEngineDuration')
 					));
 					log::add('luminotherapie','debug','Valeur de l\'intensité lumineuse : ' .$options['slider'].'/'.$luminotherapie->getConfiguration('DawnSimulatorEngineEndValue')." - durée : ".$time."/".$luminotherapie->getConfiguration('DawnSimulatorEngineDuration'));
 					$time++;
