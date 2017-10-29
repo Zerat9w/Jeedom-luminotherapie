@@ -56,7 +56,8 @@ class luminotherapie extends eqLogic {
 		$cron->setEnable(1);
 		$cron->setSchedule('* * * * * *');
 		$cron->save();
-		return $cron;
+		$cron->start();
+		$cron->run();
 	}
 	public function removeSimulAubeDemon(){
 		$cron = cron::byClassAndFunction('luminotherapie', 'SimulAubeDemon',array('id' => $this->getId()));
