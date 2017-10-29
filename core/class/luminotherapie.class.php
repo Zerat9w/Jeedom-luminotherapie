@@ -72,7 +72,7 @@ class luminotherapie extends eqLogic {
 		if(is_object($luminotherapie)){
 			log::add('luminotherapie','debug','Simulation d\'aube : '.$luminotherapie->getHumanName());
 			$time = 0;
-			$cmd=cmd::byId($luminotherapie->getConfiguration('DawnSimulatorCmd'));
+			$cmd=cmd::byId(str_replace('#','',$luminotherapie->getConfiguration('DawnSimulatorCmd')));
 			if(is_object($cmd)){
 				while(true){
 					$options['slider'] = ceil($luminotherapie->dawnSimulatorEngine(
